@@ -1,36 +1,55 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Twibbon & Instagram Automation Suite
 
-## Getting Started
+A comprehensive toolset for creating Twibbons and realistic Instagram mock-ups. Built with Next.js, Tailwind CSS, Playwright, and html2canvas.
 
-First, run the development server:
+## 🚀 Features
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+### 🎨 Twibbon Generator
+- **Merge Images**: Easily overlay your photo with any transparent PNG twibbon frame.
+- **Precise Adjustments**: Scale and position your photo with real-time preview.
+- **High-Quality Export**: Download your final twibbon as a high-resolution PNG.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### 📸 Instagram Mock-up Tools
+- **Fake IG Profile**:
+  - Fetch real-time data from Instagram (bio, stats, followers).
+  - Toggle between **Mobile** and **Desktop** views.
+  - Support for **Dark Mode** and **Light Mode**.
+  - Capture clean screenshots of the profile UI.
+- **Fake IG Post**:
+  - Custom captions, likes, and dates.
+  - High-fidelity recreation of the Instagram post layout.
+- **Fake IG Story**:
+  - Full 9:16 vertical mock-up.
+  - Interactive "Send Message" bar and reaction icons.
+  - Shared profile state (Sync username and picture across all tools).
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## 🛠️ Tech Stack
+- **Framework**: Next.js 14 (App Router)
+- **Styling**: Tailwind CSS
+- **Icons**: Lucide React
+- **Scraping**: Playwright (for resilient Instagram data fetching)
+- **Export**: html2canvas (for client-side screenshot generation)
+- **Proxy**: Custom API Image Proxy for CORS-permissive rendering
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## 📦 Installation
 
-## Learn More
+1. **Clone the repository**:
+   ```bash
+   git clone https://github.com/rafiathallah3/Twibbon-Automation.git
+   cd Twibbon-Automation
+   ```
 
-To learn more about Next.js, take a look at the following resources:
+2. **Install dependencies**:
+   ```bash
+   npm install
+   ```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+3. **Install Playwright Browsers**:
+   ```bash
+   npx playwright install chromium
+   ```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+4. **Run the development server**:
+   ```bash
+   npm run dev
+   ```
