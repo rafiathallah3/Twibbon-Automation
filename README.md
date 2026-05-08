@@ -44,10 +44,8 @@ A comprehensive toolset for creating Twibbons and realistic Instagram mock-ups. 
    npm install
    ```
 
-3. **Install Playwright Browsers**:
-   ```bash
-   npx playwright install chromium
-   ```
+3. **Environment Setup**:
+   For Vercel deployment, the project uses `playwright-core` and `@sparticuz/chromium` to stay within the serverless function size limits. No additional browser installation is needed on Vercel.
 
 4. **Run the development server**:
    ```bash

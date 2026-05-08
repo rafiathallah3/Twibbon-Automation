@@ -1,5 +1,6 @@
 import { NextResponse } from 'next/server';
-import { chromium } from 'playwright';
+import { chromium } from 'playwright-core';
+import chromium_sparticuz from '@sparticuz/chromium';
 
 // In-memory cache to store responses and avoid rate limits
 const cache = new Map<string, { data: any, timestamp: number }>();
@@ -25,11 +26,24 @@ export async function GET(request: Request) {
 
   let browser;
   try {
-    // Launch headless browser
-    browser = await chromium.launch({
-      headless: true,
-      args: ['--no-sandbox', '--disable-setuid-sandbox'],
-    });
+    // Launch headless browser with environment-specific options
+    let options = {};
+    
+    if (process.env.NODE_ENV === 'production' || process.env.VERCEL) {
+      options = {
+        args: chromium_sparticuz.args,
+        executablePath: await chromium_sparticuz.executablePath(),
+        headless: true,
+      };
+    } else {
+      // Local development fallback
+      options = {
+        args: ['--no-sandbox', '--disable-setuid-sandbox'],
+        headless: true,
+      };
+    }
+
+    browser = await chromium.launch(options);
 
     // Create a context with a realistic user agent
     const context = await browser.newContext({
